@@ -28,19 +28,20 @@ export default function Navbar({ user }: { user: any }) {
             <div className="flex h-16 justify-between">
               <div className="flex">
                 <div className="flex flex-shrink-0 items-center">
-                    <a href="/dashboard" className="flex items-center space-x-2 group">
-                      <Image
-                      src="https://raw.githubusercontent.com/IBN-5100/discordassets/main/dseal.png" 
-                      alt="Logo" 
-                      width={32}
-                      height={32}
-                      className="rounded-full" 
+                  <a href="/dashboard" className="flex items-center space-x-2 group cursor-pointer">
+                    <Image
+                    src="https://raw.githubusercontent.com/IBN-5100/discordassets/main/dseal.png" 
+                    alt="Logo" 
+                    width={32} 
+                    height={32}
+                    className="rounded-full" 
                     />
-                      <div className="h-8 w-8 bg-gray-300 rounded-full"></div>
-                      <span className="text-sm font-medium text-gray-500 group-hover:text-gray-900 transition-all duration-300 opacity-0 group-hover:opacity-100">
-                        Dashboard
-                      </span>
-                    </a>
+                    <div className="h-8 w-8 bg-gray-300 rounded-full"></div>
+                    <span className="text-sm font-medium text-gray-500 group-hover:text-gray-900 transition-all duration-300 transform scale-0 group-hover:scale-100">
+                      Dashboard
+                    </span>
+                  </a>
+
                 </div>
                 <div className="hidden sm:-my-px sm:ml-6 sm:flex sm:space-x-8">
                   {navigation.map((item) => (
