@@ -36,7 +36,6 @@ export default function Navbar({ user }: { user: any }) {
                     height={32}
                     className="rounded-full" 
                     />
-                    <div className="h-8 w-8 bg-gray-300 rounded-full"></div>
                     <span className="text-sm font-medium text-gray-500 group-hover:text-gray-900 transition-all duration-300 transform scale-0 group-hover:scale-100">
                       Dashboard
                     </span>
