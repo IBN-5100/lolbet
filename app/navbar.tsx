@@ -10,7 +10,7 @@ import Image from 'next/image';
 const navigation = [
   { name: 'lolbet', href: '/dashboard' },
   { name: 'market', href: '/playground' },
-  { name: 'leaderboard', href: '/' }
+  { name: 'investors', href: '/' }
 ];
 
 function classNames(...classes: string[]) {
