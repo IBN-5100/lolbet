@@ -28,7 +28,7 @@ export const {
         `;
       if (check.rowCount === 0) {
         await sql`
-          INSERT INTO users (name, email) VALUES (${name}, ${email});
+          INSERT INTO users (name, email) VALUES (${username}, ${email});
         `;
         }
     } else {
