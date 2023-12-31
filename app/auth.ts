@@ -22,14 +22,14 @@ export const {
     async signIn({profile}) {
       let username = profile?.username;
       let email = profile?.email;
-      if (profile && profile.username && profile.email) {
+      if (typeof username == 'string' && typeof email == 'string') {
       await sql`
         INSERT INTO users (name, email)
         VALUES (${username}, ${email})
         ON CONFLICT (email) DO NOTHING;
       `;
     } else {
-      console.error('Profile is undefined or missing email or username:', profile);
+      console.error('nonstring:', profile);
       return false;
     }
       return true; 
