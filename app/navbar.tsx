@@ -102,7 +102,7 @@ export default function Navbar({ user }: { user: any }) {
                               )}
                               onClick={() => signOut()}
                             >
-                              sign out
+                              logout
                             </button>
                           )}
                         </Menu.Item>
@@ -114,9 +114,9 @@ export default function Navbar({ user }: { user: any }) {
                                 active ? 'bg-gray-100' : '',
                                 'flex w-full px-4 py-2 text-sm text-gray-700'
                               )}
-                              onClick={() => signIn('discord')}
+                              onClick={() => signIn('discord', { callbackUrl: '', redirect: true }, { prompt: "none" })}
                             >
-                              sign in
+                              login
                             </button>
                           )}
                         </Menu.Item>
@@ -184,17 +184,17 @@ export default function Navbar({ user }: { user: any }) {
                       onClick={() => signOut()}
                       className="block px-4 py-2 text-base font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-800"
                     >
-                      sign out
+                      logout
                     </button>
                   </div>
                 </>
               ) : (
                 <div className="mt-3 space-y-1">
                   <button
-                    onClick={() => signIn('discord')}
+                    onClick={() => signIn('discord', { callbackUrl: '', redirect: true }, { prompt: "none" })}
                     className="flex w-full px-4 py-2 text-base font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-800"
                   >
-                    sign in
+                    login
                   </button>
                 </div>
               )}
