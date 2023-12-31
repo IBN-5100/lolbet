@@ -19,11 +19,12 @@ export const {
     signIn: '/sign-in'
   },
   callbacks: {
-    async signIn({ user, account, profile, email}) {
-      console.log('User object:', user);
-      console.log('Account object:', account);
-      console.log('Profile object:', profile);
-      console.log('Email:', email);
+    async signIn({profile}) {
+      await sql`
+          INSERT INTO users (name, email)
+          VALUES (${profile.username}, ${profile.email})
+          ON CONFLICT (email) DO NOTHING;
+        `;
       return true; 
     },
   },
