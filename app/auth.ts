@@ -26,7 +26,7 @@ export const {
         const check = await sql`
           SELECT * FROM users WHERE email = ${email};
         `;
-      if (result.rowCount === 0) {
+      if (check.rowCount === 0) {
         await sql`
           INSERT INTO users (name, email) VALUES (${name}, ${email});
         `;
