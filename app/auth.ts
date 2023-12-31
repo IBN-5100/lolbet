@@ -1,5 +1,6 @@
 import NextAuth from 'next-auth';
 import DiscordProvider from 'next-auth/providers/discord';
+import { sql } from '@vercel/postgres';
 
 const scopes = ['identify', 'email']
 
