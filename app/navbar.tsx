@@ -28,7 +28,7 @@ export default function Navbar({ user }: { user: any }) {
             <div className="flex h-16 justify-between">
               <div className="flex">
                 <div className="flex flex-shrink-0 items-center">
-                  <a href="/dashboard" className="flex items-center space-x-2 group cursor-pointer">
+                  <a href="/dashboard" className="flex items-center space-x-2 group cursor-pointer overflow-hidden">
                     <Image
                     src="https://raw.githubusercontent.com/IBN-5100/discordassets/main/dseal.png" 
                     alt="Logo" 
@@ -36,7 +36,7 @@ export default function Navbar({ user }: { user: any }) {
                     height={32}
                     className="rounded-full" 
                     />
-                    <span className="text-sm font-medium text-gray-500 group-hover:text-gray-900 transition-all duration-300 transform scale-0 group-hover:scale-100">
+                    <span className="text-sm font-medium text-gray-500 group-hover:text-gray-900 transition-all duration-300 transform group-hover:translate-x-0 translate-x-full whitespace-nowrap">
                       Dashboard
                     </span>
                   </a>
