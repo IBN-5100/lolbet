@@ -1,7 +1,7 @@
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://github.com/IBN-5100/discordassets/blob/main/necoarc.gif">
-  <source media="(prefers-color-scheme: light)" srcset="https://github.com/IBN-5100/discordassets/blob/main/necoarc.gif">
-  <img alt="lolbet logo graphic" src="https://github.com/IBN-5100/discordassets/blob/main/necoarc.gif">
+  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/IBN-5100/discordassets/main/Untitled%20design.png">
+  <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/IBN-5100/discordassets/main/Untitled%20design.png">
+  <img alt="lolbet logo graphic" src="https://raw.githubusercontent.com/IBN-5100/discordassets/main/Untitled%20design.png">
 </picture>
 
 <div align="center"><strong>lolbet</strong></div>
