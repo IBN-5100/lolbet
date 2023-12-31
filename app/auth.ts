@@ -19,27 +19,11 @@ export const {
     signIn: '/sign-in'
   },
   callbacks: {
-    async signIn({ user, account, profile }) {
-      if (!user.email) {
-        console.error('Email not provided by Discord provider:', user);
-        return false; 
-      }
-
-      try {
-        const result = await sql`
-          SELECT * FROM users WHERE email = ${user.email};
-        `;
-
-        if (result.rowCount === 0) {
-          await sql`
-            INSERT INTO users (name, email) VALUES (${user.name}, ${user.email});
-          `;
-        }
-      } catch (error) {
-        console.error('Error in signIn callback:', error);
-        return false; 
-      }
-
+    async signIn({ user, account, profile, email}) {
+      console.log('User object:', user);
+      console.log('Account object:', account);
+      console.log('Profile object:', profile);
+      console.log('Email:', email);
       return true; 
     },
   },
