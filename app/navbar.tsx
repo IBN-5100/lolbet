@@ -8,7 +8,7 @@ import { signIn, signOut } from 'next-auth/react';
 import Image from 'next/image';
 
 const navigation = [
-  { name: 'Dashboard', href: '/dashboard' },
+  { name: 'lolbet', href: '/dashboard' },
   { name: 'Playground', href: '/playground' },
   { name: 'Leaderboard', href: '/' }
 ];
@@ -40,7 +40,7 @@ export default function Navbar({ user }: { user: any }) {
                       )}
                       aria-current={pathname === item.href ? 'page' : undefined}
                     >
-                      {item.name === 'Dashboard' ? (
+                      {item.name === 'lolbet' ? (
                       <div className="flex items-center">
                       <img src="https://raw.githubusercontent.com/IBN-5100/discordassets/main/dseal.png" alt="Dashboard" className="h-6 w-6 mr-2" />
                       {item.name}
