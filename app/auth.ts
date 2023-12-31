@@ -23,11 +23,14 @@ export const {
       let username = profile?.username;
       let email = profile?.email;
       if (typeof username == 'string' && typeof email == 'string') {
-      await sql`
-        INSERT INTO users (name, email)
-        VALUES (${username}, ${email})
-        ON CONFLICT (email) DO NOTHING;
-      `;
+        const check = await sql`
+          SELECT * FROM users WHERE email = ${email};
+        `;
+      if (result.rowCount === 0) {
+        await sql`
+          INSERT INTO users (name, email) VALUES (${name}, ${email});
+        `;
+        }
     } else {
       console.error('nonstring:', profile);
       return false;
