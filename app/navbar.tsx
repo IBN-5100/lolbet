@@ -27,21 +27,6 @@ export default function Navbar({ user }: { user: any }) {
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div className="flex h-16 justify-between">
               <div className="flex">
-                <div className="flex flex-shrink-0 items-center">
-                  <a href="/dashboard" className="flex items-center space-x-2 group cursor-pointer">
-                    <Image
-                    src="https://raw.githubusercontent.com/IBN-5100/discordassets/main/dseal.png" 
-                    alt="Logo" 
-                    width={32} 
-                    height={32}
-                    className="rounded-full" 
-                    />
-                    <span className="text-sm font-medium text-gray-500 group-hover:text-gray-900 transition-all duration-300 transform scale-0 group-hover:scale-100">
-                      Dashboard
-                    </span>
-                  </a>
-
-                </div>
                 <div className="hidden sm:-my-px sm:ml-6 sm:flex sm:space-x-8">
                   {navigation.map((item) => (
                     <a
@@ -55,7 +40,14 @@ export default function Navbar({ user }: { user: any }) {
                       )}
                       aria-current={pathname === item.href ? 'page' : undefined}
                     >
+                      {item.name === 'Dashboard' ? (
+                      <div className="flex items-center">
+                      <img src="/app/img/dseal.png" alt="Dashboard" className="h-4 w-4 mr-2" />
                       {item.name}
+                      </div>
+                      ) : (
+                      item.name
+                      )}
                     </a>
                   ))}
                 </div>
