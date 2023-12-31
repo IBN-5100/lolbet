@@ -20,19 +20,15 @@ export const {
   },
   callbacks: {
     async signIn({ user }) {
-      const email = user.email;
-      const name = user.name;
 
-      if (email) {
         const existingUser = await sql`
-          SELECT * FROM users WHERE email = ${email};
+          SELECT * FROM users WHERE email = ${user.email};
         `;
         if (existingUser.rowCount === 0) {
           await sql`
-            INSERT INTO users (name, email) VALUES (${name}, ${email});
+            INSERT INTO users (name, email) VALUES (${user.name}, ${user.email});
           `;
         }
-      }
       return true;
     },
   },
