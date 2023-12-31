@@ -27,7 +27,7 @@ export const {
         const existingUser = await sql`
           SELECT * FROM users WHERE email = ${email};
         `;
-        if (existingUser.count === 0) {
+        if (existingUser.rowCount === 0) {
           await sql`
             INSERT INTO users (name, email) VALUES (${name}, ${email});
           `;
