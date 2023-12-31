@@ -20,11 +20,16 @@ export const {
   },
   callbacks: {
     async signIn({profile}) {
+      if (profile && profile.username && profile.email) {
       await sql`
-          INSERT INTO users (name, email)
-          VALUES (${profile.username}, ${profile.email})
-          ON CONFLICT (email) DO NOTHING;
-        `;
+        INSERT INTO users (name, email)
+        VALUES (${profile.username}, ${profile.email})
+        ON CONFLICT (email) DO NOTHING;
+      `;
+    } else {
+      console.error('Profile is undefined or missing email or username:', profile);
+      return false;
+    }
       return true; 
     },
   },
