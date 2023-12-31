@@ -16,5 +16,23 @@ export const {
   ],
   pages: {
     signIn: '/sign-in'
-  }
+  },
+  callbacks: {
+    async signIn({ user }) {
+      const email = user.email;
+      const name = user.name;
+
+      if (email) {
+        const existingUser = await sql`
+          SELECT * FROM users WHERE email = ${email};
+        `;
+        if (existingUser.count === 0) {
+          await sql`
+            INSERT INTO users (name, email) VALUES (${name}, ${email});
+          `;
+        }
+      }
+      return true;
+    },
+  },
 });
