@@ -30,7 +30,7 @@ export default function Navbar({ user }: { user: any }) {
                 <div className="flex flex-shrink-0 items-center">
                     <a href="/dashboard" className="flex items-center space-x-2 group">
                       <Image
-                      src="/app/img/dseal.png" 
+                      src="https://raw.githubusercontent.com/IBN-5100/discordassets/main/dseal.png" 
                       alt="Logo" 
                       width={32}
                       height={32}
