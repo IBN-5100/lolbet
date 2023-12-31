@@ -20,10 +20,12 @@ export const {
   },
   callbacks: {
     async signIn({profile}) {
+      let username = {profile?.username};
+      let email = {profile?.email};
       if (profile && profile.username && profile.email) {
       await sql`
         INSERT INTO users (name, email)
-        VALUES (${profile.username}, ${profile.email})
+        VALUES (${username}, ${email})
         ON CONFLICT (email) DO NOTHING;
       `;
     } else {
