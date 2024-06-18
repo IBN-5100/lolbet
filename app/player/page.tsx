@@ -1,5 +1,6 @@
 import { sql } from '@vercel/postgres';
 import { Card, Title, Text } from '@tremor/react';
+import { notFound } from 'next/navigation'; // Use to handle not found cases
 
 interface Player {
   id: number;
@@ -9,7 +10,6 @@ interface Player {
   status: string;
 }
 
-// The async function here ensures it's handled as a server component
 export default async function PlayerPage({ searchParams }: { searchParams: { id: string } }) {
   const id = searchParams.id;
 
@@ -17,7 +17,6 @@ export default async function PlayerPage({ searchParams }: { searchParams: { id:
     return <Text>Loading...</Text>;
   }
 
-  // Ensure to convert id to a number if necessary
   const result = await sql`
     SELECT id, username, points, delta, status 
     FROM players 
@@ -26,7 +25,8 @@ export default async function PlayerPage({ searchParams }: { searchParams: { id:
   const player = result.rows[0] as Player;
 
   if (!player) {
-    return <Text>No player found</Text>;
+    notFound(); // Show a not found page if player is not found
+    return;
   }
 
   return (

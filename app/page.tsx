@@ -1,6 +1,6 @@
 import { sql } from '@vercel/postgres';
 import { Card, Title, Text, Table, TableHead, TableHeaderCell, TableBody, TableRow, TableCell } from '@tremor/react';
-import { useRouter } from 'next/navigation';  // Correct import for server components
+import Link from 'next/link'; // Use Link for client-side navigation
 
 interface Player {
   id: number;
@@ -16,11 +16,6 @@ export default async function IndexPage() {
     FROM players;
   `;
   const players = result.rows as Player[];
-  const router = useRouter();
-
-  const handleRowClick = (id: number) => {
-    router.push(`/player?id=${id}`);
-  };
 
   return (
     <main className="p-4 md:p-10 mx-auto max-w-7xl">
@@ -38,8 +33,12 @@ export default async function IndexPage() {
           </TableHead>
           <TableBody>
             {players.map(player => (
-              <TableRow key={player.id} onClick={() => handleRowClick(player.id)} className="cursor-pointer">
-                <TableCell>{player.username}</TableCell>
+              <TableRow key={player.id}>
+                <TableCell>
+                  <Link href={`/player?id=${player.id}`}>
+                    <a>{player.username}</a>
+                  </Link>
+                </TableCell>
                 <TableCell>{player.points}</TableCell>
                 <TableCell>{player.delta}</TableCell>
                 <TableCell>{player.status}</TableCell>
