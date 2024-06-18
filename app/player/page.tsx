@@ -1,6 +1,5 @@
 import { sql } from '@vercel/postgres';
 import { Card, Title, Text } from '@tremor/react';
-import { useSearchParams } from 'next/navigation';  // Correct import for server components
 
 interface Player {
   id: number;
@@ -10,18 +9,19 @@ interface Player {
   status: string;
 }
 
-export default async function PlayerPage() {
-  const searchParams = useSearchParams();
-  const id = searchParams.get('id');
+// The async function here ensures it's handled as a server component
+export default async function PlayerPage({ searchParams }: { searchParams: { id: string } }) {
+  const id = searchParams.id;
 
   if (!id) {
     return <Text>Loading...</Text>;
   }
 
+  // Ensure to convert id to a number if necessary
   const result = await sql`
     SELECT id, username, points, delta, status 
     FROM players 
-    WHERE id = ${id};
+    WHERE id = ${Number(id)};
   `;
   const player = result.rows[0] as Player;
 
