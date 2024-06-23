@@ -1,4 +1,3 @@
-import { sql } from '@vercel/postgres';
 import { Card, Title, Text } from '@tremor/react';
 import { notFound } from 'next/navigation'; // Use to handle not found cases
 
@@ -17,12 +16,12 @@ export default async function PlayerPage({ searchParams }: { searchParams: { id:
     return <Text>Loading...</Text>;
   }
 
-  const result = await sql`
-    SELECT id, username, points, delta, status 
-    FROM players 
-    WHERE id = ${Number(id)};
-  `;
-  const player = result.rows[0] as Player;
+  const player = {
+    username: "SuperFX",
+    points: 123,
+    delta: 1,
+    status: "live"
+  };
 
   if (!player) {
     notFound(); // Show a not found page if player is not found

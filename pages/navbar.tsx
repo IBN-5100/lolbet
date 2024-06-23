@@ -42,7 +42,7 @@ export default function Navbar({ user }: { user: any }) {
                     >
                       {item.name === 'lolbet' ? (
                       <div className="flex items-center">
-                      <img src="https://raw.githubusercontent.com/IBN-5100/discordassets/main/dseal.png" alt="Dashboard" className="h-6 w-6 mr-2" />
+                      <img src="/dseal.png" alt="Dashboard" className="h-6 w-6 mr-2" />
                       {item.name}
                       </div>
                       ) : (

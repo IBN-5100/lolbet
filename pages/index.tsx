@@ -1,4 +1,3 @@
-import { sql } from '@vercel/postgres';
 import { Card, Title, Text, Table, TableHead, TableHeaderCell, TableBody, TableRow, TableCell } from '@tremor/react';
 import Link from 'next/link'; // Use Link for client-side navigation
 
@@ -10,12 +9,7 @@ interface Player {
   status: string;
 }
 
-export default async function IndexPage() {
-  const result = await sql`
-    SELECT id, username, points, delta, status 
-    FROM players;
-  `;
-  const players = result.rows as Player[];
+export default async function IndexPage({players}) {
 
   return (
     <main className="p-4 md:p-10 mx-auto max-w-7xl">
